@@ -1,0 +1,36 @@
+<div class="app-container app-login">
+  <div class="flex-center">
+    <div class="app-header"></div>
+    <div class="app-body">
+      <div class="loader-container text-center">
+        <div class="icon">
+          <div class="sk-folding-cube">
+            <div class="sk-cube1 sk-cube"></div>
+            <div class="sk-cube2 sk-cube"></div>
+            <div class="sk-cube4 sk-cube"></div>
+            <div class="sk-cube3 sk-cube"></div>
+          </div>
+        </div>
+        <div class="title">Home</div>
+      </div>
+      <div class="app-block">
+        <div class="app-form">
+          <div class="form-header">
+            <div class="app-brand"><span class="highlight">H3Africa</span> Catalog</div>
+          </div>
+          <div class="form-footer">
+            <%= link "Sign in", to: session_path(@conn, :new), class: "btn btn-success" %>
+          </div>
+          <div class="form-line">
+            <div class="title">or</div>
+          </div>
+          <div class="form-footer">
+            <%= link "Create an account", to: user_path(@conn, :new), class: "btn btn-warning" %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="app-footer">
+    </div>
+  </div>
+</div>

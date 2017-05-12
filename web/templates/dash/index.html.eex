@@ -1,0 +1,111 @@
+<div class="row">
+    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+        <a class="card card-banner card-green-light">
+            <div class="card-body">
+                <i class="icon fa fa-pencil fa-4x"></i>
+                <div class="content">
+                    <div class="title">Total Studies</div>
+                    <div class="value"><span class="sign"></span>
+                        <%= length(@studies) %>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+        <a class="card card-banner card-blue-light">
+            <div class="card-body">
+                <i class="icon fa fa-child fa-4x"></i>
+                <div class="content">
+                    <div class="title">Total Individuals</div>
+                    <div class="value"><span class="sign"></span>
+                        <%= length(@individuals) %>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+        <a class="card card-banner card-yellow-light">
+            <div class="card-body">
+                <i class="icon fa fa-users fa-4x"></i>
+                <div class="content">
+                    <div class="title">Total Users</div>
+                    <div class="value"><span class="sign"></span>
+                        <%= length(@users) %>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12 col-xs-12">
+        <div class="card">
+            <div class="card-header">
+                Steps
+            </div>
+            <div class="card-body">
+                <div class="section">
+                    <div class="section-body">
+                        <div class="step">
+                            <ul class="nav nav-tabs nav-justified" role="tablist">
+                                <li role="step" class="active">
+                                    <a href="#step1" id="step1-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">
+                                        <div class="icon fa fa-file-text"></div>
+                                        <div class="heading">
+                                            <div class="title">Prepare your CSV file</div>
+                                            <div class="description">and check the format</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li role="step">
+                                    <a href="#step2" role="tab" id="step2-tab" data-toggle="tab" aria-controls="profile">
+                                        <div class="icon fa fa-cloud-upload"></div>
+                                        <div class="heading">
+                                            <div class="title">Upload</div>
+                                            <div class="description">the CSV file to server</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li role="step">
+                                    <a href="#step3" role="tab" id="step3-tab" data-toggle="tab" aria-controls="profile">
+                                        <div class="icon fa fa-database"></div>
+                                        <div class="heading">
+                                            <div class="title">Import</div>
+                                            <div class="description">the CSV file into database</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li role="step">
+                                    <a href="#step4" role="tab" id="step4-tab" data-toggle="tab" aria-controls="profile">
+                                        <div class="icon fa fa-search"></div>
+                                        <div class="heading">
+                                            <div class="title">View and search</div>
+                                            <div class="description">samples</div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane active" id="step1">
+                                    <b>Step1</b> : Prepare CSV files: study.csv and individual.csv.
+                                </div>
+                                <div role="tabpanel" class="tab-pane" id="step2">
+                                    <b>Step2</b> : Upload study.csv and individual.csv files, the name of the files must not change.
+                                </div>
+                                <div role="tabpanel" class="tab-pane" id="step3">
+                                    <b>Step3</b> : Import study.csv file first, and then individual file into database.
+                                </div>
+                                <div role="tabpanel" class="tab-pane" id="step4">
+                                    <b>Step4</b> : View and search database.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

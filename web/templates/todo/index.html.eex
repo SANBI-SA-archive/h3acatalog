@@ -1,0 +1,65 @@
+<div class="row">
+  <div class="col-xs-12">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Todo List</div>
+        <ul class="card-action">
+          <li>
+            <%= link "New todo", to: todo_path(@conn, :new), class: "btn btn-success btn-xs" %>
+          </li>
+        </ul>
+      </div>
+      <div class="card-body no-padding">
+        <div class="row">
+          <div class="col-md-12">
+            <table class="table card-table">
+              <thead>
+                <tr>
+                  <th>Title</th>
+                  <th>Completed</th>
+                  <th>User</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <%= for todo <- @todos do %>
+                  <tr>
+                    <td>
+                      <%= todo.title %>
+                    </td>
+                    <td>
+                      <%= if todo.completed do %>
+                        <span class="badge badge-success badge-icon"><i class="fa fa-check" aria-hidden="true"></i><span>Complete</span></span>
+                        <%= else %>
+                          <span class="badge badge-warning badge-icon"><i class="fa fa-clock-o" aria-hidden="true"></i><span>Pending</span></span>
+                          <%= end %>
+                    </td>
+                    <td>
+                      <%= todo.user_id %>
+                    </td>
+                    <td class="text-left">
+                      <ul class="list-inline">
+                        <li>
+                          <%= link "Complete", to: todo_path(@conn, :complete, todo), class: "btn btn-info btn-xs" %>
+                        </li>
+                        <li>
+                          <%= link "Show", to: todo_path(@conn, :show, todo), class: "btn btn-default btn-xs" %>
+                        </li>
+                        <li>
+                          <%= link "Edit", to: todo_path(@conn, :edit, todo), class: "btn btn-default btn-xs" %>
+                        </li>
+                        <li>
+                          <%= link "Delete", to: todo_path(@conn, :delete, todo), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-warning btn-xs" %>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

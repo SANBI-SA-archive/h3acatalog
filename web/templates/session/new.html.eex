@@ -1,0 +1,59 @@
+<div class="app-container app-login">
+  <div class="flex-center">
+    <div class="app-header"></div>
+    <div class="app-body">
+      <div class="loader-container text-center">
+        <div class="icon">
+          <div class="sk-folding-cube">
+            <div class="sk-cube1 sk-cube"></div>
+            <div class="sk-cube2 sk-cube"></div>
+            <div class="sk-cube4 sk-cube"></div>
+            <div class="sk-cube3 sk-cube"></div>
+          </div>
+        </div>
+        <div class="title">Logging in ...</div>
+      </div>
+      <div class="app-block">
+        <div class="app-form">
+          <div class="form-header">
+            <div class="app-brand"><span class="highlight">H3Africa</span> Catalog</div>
+          </div>
+            <%= form_for @conn, session_path(@conn, :create), [as: :session], fn f -> %>
+              <%= if f.errors != [] do %>
+                <div class="alert alert-danger">
+                  <p>Please check the errors below:</p>
+                </div>
+              <% end %>
+              <div class="form-group">
+           <div class="input-group">
+              <span class="input-group-addon" id="basic-addon1">
+                <i class="fa fa-user" aria-hidden="true"></i></span>
+                  <%= text_input f, :username, class: "form-control", placeholder: "Username" %>
+                    <%= error_tag f, :username %>
+              </div>
+           </div>
+              <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon" id="basic-addon2">
+                <i class="fa fa-key" aria-hidden="true"></i></span>
+                  <%= password_input f, :password, class: "form-control", placeholder: "Password" %>
+                    <%= error_tag f, :password %>
+              </div>
+            </div>
+              <div class="text-center">
+                <%= submit "Login", class: "btn btn-success btn-submit" %>
+              </div>
+            <% end %>
+            <div class="form-line">
+              <div class="title">OR</div>
+            </div>
+            <div class="form-footer">
+              <%= link "Create an account", to: user_path(@conn, :new) %>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="app-footer">
+    </div>
+  </div>
+</div>

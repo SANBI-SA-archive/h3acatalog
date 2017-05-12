@@ -1,0 +1,60 @@
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-body app-heading">
+        <%= if @user.photo do %>
+          <img class="profile-img" src="<%= H3acatalog.Photo.url({@user.photo, @user}) %>">
+        <% else %>
+          <img class="profile-img" src="/uploads/default.png">
+        <% end %>
+        <div class="app-title">
+          <div class="title"><span class="highlight"><%= @user.username %></span></div>
+          <div class="description">
+            <%= @user.name %> (<%= @user.role %>@h3acatalog)
+          </div>
+        </div>
+        <%= link "Edit", to: user_path(@conn, :edit, @user.id), class: "btn btn-success btn-xs" %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card card-tab">
+      <div class="card-header">
+        <ul class="nav nav-tabs">
+          <li role="tab1" class="active">
+            <a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">Profile</a>
+          </li>
+        </ul>
+      </div>
+      <div class="card-body no-padding tab-content">
+        <div role="tabpanel" class="tab-pane active" id="tab1">
+          <div class="row">
+            <div class="col-md-6 col-sm-12">
+              <div class="section">
+                <div class="section-title"><i class="icon fa fa-user" aria-hidden="true"></i> Bio</div>
+                <div class="section-body __indent">
+                  <%= @user.bio %>
+                </div>
+              </div>
+              <div class="section">
+                <div class="section-title"><i class="icon fa fa-briefcase" aria-hidden="true"></i> Working at</div>
+                <div class="section-body __indent">
+                  <%= @user.working_at %>
+                </div>
+              </div>
+              <div class="section">
+                <div class="section-title"><i class="icon fa fa-envelope" aria-hidden="true"></i> Contact</div>
+                <div class="section-body __indent">
+                  <%= @user.email %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

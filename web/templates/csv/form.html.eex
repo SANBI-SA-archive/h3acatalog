@@ -1,0 +1,18 @@
+<div class="form form-horizontal">
+  <%= form_for @conn, @action, [as: "upload", multipart: :true], fn f -> %>
+    <div class="form-group">
+      <label class="col-md-3 control-label">Upload CSV file</label>
+      <div class="col-md-6">
+        <%= file_input f, :csv, class: "form-control" %>
+          <%= error_tag f, :csv %>
+      </div>
+    </div>
+    <div class="form-footer">
+      <div class="form-group">
+        <div class="col-md-9 col-md-offset-3">
+          <%= submit "Upload", class: "btn btn-success" %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+</div>

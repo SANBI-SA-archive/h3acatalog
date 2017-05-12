@@ -1,0 +1,4 @@
+host bitbucket.org
+     user longyee
+     port 22
+     identityfile /root/.ssh/repo

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>H3A Catalog</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="stylesheet" href="<%= static_path(@conn, "/css/vendor.css") %>">
+  <link rel="stylesheet" href="<%= static_path(@conn, "/css/flat-admin.css") %>">
+</head>
+
+<body>
+  <div class="app app-default">
+      <nav class="navbar navbar-default" id="navbar">
+        <div class="navbar-collapse collapse in">
+          <ul class="nav navbar-nav navbar-left">
+            <li class="navbar-title"><span class="highlight">H3Africa</span><span>&nbsp;Catalog</li>
+            <li class="navbar-search hidden-sm">
+              <input id="search" type="text" placeholder="Search ...">
+              <button class="btn-search"><i class="fa fa-search"></i></button>
+            </li>
+            </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown notification">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <div class="icon"><i class="fa fa-sign-in" aria-hidden="true"></i></div>
+                <div class="title">Menu</div>
+              </a>
+              <div class="dropdown-menu">
+                <ul>
+                  <li><%= link "Login", to: session_path(@conn, :new) %></li>
+                  <li><%= link "Register", to: user_path(@conn, :new) %></li>
+                  <li><a href="mailto:h3acatalog@sanbi.ac.za?Subject=Help" target="_top">Contact</a></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-12 col-xs-12">
+          <div class="card">
+            <div class="card-header">
+              Search
+            </div>
+            <div class="card-body">
+              <div class="section">
+                <div class="section-title">Study</div>
+                <div class="section-body">
+To perform a search among the available study resources, you can specify keywords in the search box below and filter by the categories listed on the left hand side. 
+Note: When entering keywords the following study fields: Abstract, Acronym, Consent Summary, Criteria, Name, Objective, Outcome, Outcome Measure are searched. Study documents such as forms, manuals, study protocol or study background documents can be searched as well by selecting the 'Search Study Documents' checkbox below. 
+Access to samples from studies marked as "Internal Use Only" is only available via collaboration. Please contact the parent study to ask about ancillary study opportunities.
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-3">
+                  <input type="text" class="form-control" placeholder="Acronym">
+                  <input type="text" class="form-control" placeholder="Has Specimens">
+                  <input type="text" class="form-control" placeholder="Specimen Type">
+                  <input type="text" class="form-control" placeholder="Conditions">
+                  <input type="text" class="form-control" placeholder="Transplant Studies">
+                  <input type="text" class="form-control" placeholder="Network">
+                  <input type="text" class="form-control" placeholder="Study Design">
+                  <div class="checkbox">
+                    <input type="checkbox" id="checkbox1">
+                    <label for="checkbox1">
+                      Has Study Datasets
+                    </label>
+                  </div>
+                  <div class="checkbox">
+                    <input type="checkbox" id="checkbox2">
+                    <label for="checkbox2">
+                      Dialysis Studies
+                    </label>
+                  </div>
+                </div>
+                <div class="col-md-9">
+                  <table class="table table-striped table-bordered table-hover">
+                    <thead>
+                      <tr>
+                        <th>ega_id</th>
+                        <th>acronym</th>
+                        <th>titile</th>
+                        <th>description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <%= for study <- @studies do %>
+                      <tr>
+                        <td><%= study.ega_id %></td>
+                        <td><%= study.acronym %></td>
+                        <td><%= study.title %></td>
+                       <td><%= study.description %></td>
+                      </tr>
+                      <% end %>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+  
+          </div>
+        </div>
+        </div>
+
+    </div>
+  </div>
+  <script src="<%= static_path(@conn, "/js/vendor.js") %>"></script>
+  <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+</body>
+
+</html>

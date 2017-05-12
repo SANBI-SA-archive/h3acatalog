@@ -1,0 +1,80 @@
+<div class="app-container app-login">
+  <div class="flex-center">
+    <div class="app-header"></div>
+    <div class="app-body">
+      <div class="loader-container text-center">
+        <div class="icon">
+          <div class="sk-folding-cube">
+            <div class="sk-cube1 sk-cube"></div>
+            <div class="sk-cube2 sk-cube"></div>
+            <div class="sk-cube4 sk-cube"></div>
+            <div class="sk-cube3 sk-cube"></div>
+          </div>
+        </div>
+        <div class="title">Logging in...</div>
+      </div>
+      <div class="app-block">
+        <div class="app-right-section">
+          <div class="app-brand"><span class="highlight">H3Africa</span> Catalog</div>
+          <div class="app-info">
+            <ul class="list">
+              <li>
+                <div class="icon">
+                  <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                </div>
+                <div class="title">Increase <b>Productivity</b></div>
+              </li>
+              <li>
+                <div class="icon">
+                  <i class="fa fa-cubes" aria-hidden="true"></i>
+                </div>
+                <div class="title">Lot of <b>Samples</b></div>
+              </li>
+              <li>
+                <div class="icon">
+                  <i class="fa fa-usd" aria-hidden="true"></i>
+                </div>
+                <div class="title">Forever <b>Free</b></div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="app-form">
+          <%= form_for @changeset, user_path(@conn, :create), [as: :user], fn f -> %>
+            <%= if f.errors != [] do %>
+              <div class="alert alert-danger">
+                <p>Please check the errors below.</p>
+              </div>
+              <% end %>
+                <div class="form-group">
+                  <%= label f, :username, "Username", class: "control-label" %>
+                    <%= text_input f, :username, class: "form-control" %>
+                      <%= error_tag f, :username %>
+                </div>
+                <div class="form-group">
+                  <%= label f, :email, class: "control-label" %>
+                    <%= text_input f, :email, class: "form-control" %>
+                      <%= error_tag f, :email %>
+                </div>
+                <div class="form-group">
+                  <%= label f, :password, class: "control-label" %>
+                    <%= password_input f, :password, class: "form-control" %>
+                      <%= error_tag f, :password %>
+                </div>
+                <div class="text-center">
+                  <%= submit "Create an account", class: "btn btn-success btn-submit" %>
+                </div>
+                <% end %>
+                  <div class="form-line">
+                    <div class="title">OR</div>
+                  </div>
+                  <div class="form-footer">
+                    <%= link "Sign in", to: session_path(@conn, :new) %>
+                  </div>
+        </div>
+      </div>
+    </div>
+    <div class="app-footer">
+    </div>
+  </div>
+</div>

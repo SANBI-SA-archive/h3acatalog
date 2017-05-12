@@ -1,0 +1,73 @@
+<div class="row">
+  <div class="col-xs-12">
+    <div class="card">
+      <div class="card-header">
+        H3Africa Users
+      </div>
+      <div class="card-body no-padding">
+        <div class="row">
+          <div class="col-md-12">
+            <table class="table card-table">
+              <thead>
+                <tr>
+                  <th>Username</th>
+                  <th>Email</th>
+                  <th>Name</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <%= for user <- @users do %>
+                  <tr>
+                    <td>
+                      <%= user.username %>
+                    </td>
+                    <td>
+                      <%= user.email %>
+                    </td>
+                    <td>
+                      <%= user.name %>
+                    </td>
+                    <td class="text-left">
+                      <ul class="list-inline">
+                        <li>
+                          <%= link "Show", to: user_path(@conn, :show, user), class: "btn btn-default btn-xs" %>
+                        </li>
+                        <li>
+                          <%= if @current_user == user do %>
+                            <%= link "Edit", to: user_path(@conn, :edit, user), class: "btn btn-default btn-xs" %>
+                          <% else %>
+                            <%= link "Edit", to: user_path(@conn, :edit, user), class: "btn btn-default btn-xs disabled" %>
+                          <% end %>
+                        </li>
+                        <%= if @current_user.role == "admin" do %>
+                        <li>
+                          <div class="btn-group">
+                            <button type="button" class="btn btn-info btn-xs dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Assign roles <span class="caret"></span></button>
+                            <ul class="dropdown-menu" role="menu">
+                              <li><%= link "Admin", to: user_path(@conn, :assign, user, role: "admin") %></li>
+                              <li><%= link "Biobank", to: user_path(@conn, :assign, user, role: "biobank") %></li>
+                              <li><%= link "Archive", to: user_path(@conn, :assign, user, role: "archive") %></li>
+                              <li><%= link "Guest", to: user_path(@conn, :assign, user, role: "guest") %></li>
+                            </ul>
+                          </div>
+                        </li>
+                        <% end %>
+                        <li>
+                          <%= if @current_user == user do %>
+                            <%= link "Delete", to: user_path(@conn, :delete, user), class: "btn btn-warning btn-xs" %>
+                          <% else %>
+                            <%= link "Delete", to: user_path(@conn, :delete, user), class: "btn btn-warning btn-xs disabled" %>
+                          <% end %>
+                        </li>
+                    </td>
+                  </tr>
+                  <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
