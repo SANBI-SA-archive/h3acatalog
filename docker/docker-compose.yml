@@ -2,7 +2,10 @@ version: "2"
 services:
   # the database image
   db:
-    image: "postgres:9.6"
+    image: postgres:9.6
+    # build:
+    #   context: ./db
+    #   dockerfile: Dockerfile
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
@@ -11,22 +14,22 @@ services:
       # maintenance port
       - "5432:5432"
     volumes:
-      - /Users/lyee/longyee/h3acatalog/dbdata:/var/lib/postgres
+      - ../dbdata:/var/lib/postgres
 
   # the main image, this is the application
   web:
     restart: always
-    image: web
+    build:
+      context: ./web
+      dockerfile: Dockerfile
     environment:
       PORT: "4000"
       MIX_ENV: "dev"
       DB_HOST: db
     ports:
       - "4000:4000"
-    links:
-      - "db"
     volumes:
-      - /Users/lyee/longyee/h3acatalog/uploads:/root/h3acatalog/uploads
+      - ../uploads:/root/h3acatalog/uploads
     depends_on:
       - db
 

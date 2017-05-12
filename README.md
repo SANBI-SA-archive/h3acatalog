@@ -7,7 +7,7 @@ Elixir language + Phoenix framework + Postgres database
 * Manual
 
 ```bash
-$ git clone https://longyee@bitbucket.org/longyee/h3acatalog.git
+$ git clone https://github.com/SANBI-SA/h3acatalog.git
 $ cd h3acatalog
 $ mix deps.get
 $ vi config/dev.exs
@@ -19,11 +19,8 @@ $ mix phoenix.server
 * Docker
 
 ```bash
-$ git clone https://longyee@bitbucket.org/longyee/h3acatalog.git
-$ cd h3acatalog/docker/web
-$ docker build -t web .
-$ cd ..
-$ docker-compose up
-
+$ git clone https://github.com/SANBI-SA/h3acatalog.git
+$ cd h3acatalog/docker/
+$ docker-compose up -d
 $ docker-compose run web mix ecto.migrate
 ```
