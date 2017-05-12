@@ -27,5 +27,3 @@ $ docker-compose up
 
 $ docker-compose run web mix ecto.migrate
 ```
-
-# h3acatalog
